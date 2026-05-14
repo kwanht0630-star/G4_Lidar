@@ -72,4 +72,10 @@ lidarPort = '/dev/cu.usbserial-0001';
 baudRate = 230400;
 
 ```
+### ‼️ Important
 I am in MacOS and using USB Serial 0001 so it will be /dev/cu.usbserial-0001. You may refer to your own port.
+For MacOS users:
+<img width="403" height="29" alt="image" src="https://github.com/user-attachments/assets/f79cf829-d117-42b6-9434-a5e016aa9031" />
+For Windows users:
+<img width="565" height="211" alt="image" src="https://github.com/user-attachments/assets/81f974f6-44a9-4e5a-981e-e14dc6700994" />
+
