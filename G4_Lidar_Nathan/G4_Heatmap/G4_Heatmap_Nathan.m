@@ -14,9 +14,11 @@ catch ME
     error('Connection failed. Unplug and replug the USB.');
 end
 
-mapSize = 8; 
-resolution = 50; 
+% --- UPDATED SETTINGS ---
+mapSize = 4;           % Reduced from 8 to 4 to zoom in on the center
+resolution = 50;       
 gridPixels = mapSize * resolution;
+maxDensity = 500;      % Density cap to stop the colorbar from scaling to infinity
 
 heatGrid = zeros(gridPixels, gridPixels);
 
@@ -81,6 +83,10 @@ while ishandle(hFig)
             heatGrid(py(i), px(i)) = heatGrid(py(i), px(i)) + 1;
         end
         
+        % --- CAPPING LOGIC ---
+        % Prevent values from exceeding our maxDensity limit
+        heatGrid(heatGrid > maxDensity) = maxDensity;
+        
         try
             renderGrid = imgaussfilt(heatGrid, 0.8);
         catch
@@ -92,6 +98,9 @@ while ishandle(hFig)
         set(gca, 'YDir', 'normal', 'Color', 'w', 'XColor', 'k', 'YColor', 'k');
         axis equal; xlim([-mapSize/2 mapSize/2]); ylim([-mapSize/2 mapSize/2]);
         
+        % --- COLORBAR LOCK ---
+        % Force the color axis to stay locked between 0 and maxDensity
+        caxis([0 maxDensity]); 
         colorbar; 
         
         title('Live Room Density Heatmap', 'Color', 'k');
