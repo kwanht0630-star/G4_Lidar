@@ -93,7 +93,6 @@ grid(ax, 'on');
 set(ax, 'GridColor', 'w', 'GridAlpha', 0.15, 'GridLineStyle', '--');
 
 plot(ax, 0, 0, 'gs', 'MarkerSize', 14, 'MarkerFaceColor', '#00FF00', 'HandleVisibility', 'off'); 
-plot(ax, 0.2, 0, 'ro', 'MarkerSize', 5, 'MarkerFaceColor', 'r', 'HandleVisibility', 'off'); 
 
 plot(ax, NaN, NaN, 'ks', 'MarkerFaceColor', 'k', 'MarkerSize', 10, 'DisplayName', 'Wall / Obstacle');
 plot(ax, NaN, NaN, 'ws', 'MarkerFaceColor', 'w', 'MarkerSize', 10, 'DisplayName', 'Clear Space');
