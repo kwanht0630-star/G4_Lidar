@@ -22,7 +22,9 @@ axis(ax, 'equal');
 grid(ax, 'on');
 set(ax, 'GridColor', '#555555', 'GridAlpha', 0.7);
 
-scanRadius = 4;
+% --- ZOOM ADJUSTMENT ---
+% Reduced from 4 to 1.5 to zoom in on close-range targets
+scanRadius = 1.5; 
 maxTargets = 5;       
 clearRadius = 0.3;    
 
