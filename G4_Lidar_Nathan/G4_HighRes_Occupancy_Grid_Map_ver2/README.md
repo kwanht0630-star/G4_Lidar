@@ -12,10 +12,11 @@ This repository contains a professional-grade MATLAB script that performs a high
 
 ## 📋 Prerequisites
 
-* **Software:** MATLAB (R2019b or newer is recommended for native `serialport` support).
-* **Hardware:** * A compatible 2D LiDAR sensor. (The script is tuned for sensors operating at a `230400` baud rate that utilise the `0xAA 0x55` / `[170 85]` packet header protocol).
-* A USB-to-Serial adapter.
-
+* **Software:** MATLAB (R2019b or newer recommended)
+  * **Navigation Toolbox** (Required for `occupancyMap` and `insertRay`)
+  * **Computer Vision Toolbox** (Required for `pointCloud` and `pcmerge`)
+* **Hardware:** A 2D LiDAR sensor utilizing the `0xAA 0x55` serial header protocol.
+  * A USB-to-Serial adapter.
 
 
 ## 🚀 Setup and Usage
