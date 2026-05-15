@@ -60,6 +60,9 @@ Verify that your specific LiDAR model uses the packet structure expected by the 
 
 ## 🎯 Expected Result
 
+<img width="489" height="416" alt="image" src="https://github.com/user-attachments/assets/9511aeb5-8843-45e1-b167-0f4df97d3f22" />
+
+
 Upon successfully running the script, a white-themed MATLAB figure will open, displaying your live spatial heatmap.
 
 * **Background (White):** Areas where the LiDAR has detected nothing (empty space).
