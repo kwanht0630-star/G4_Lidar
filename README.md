@@ -69,24 +69,19 @@ The workspace scripts developed during Day 3 and Day 4 are split by application 
 
 ---
 
-🚀 Execution Workflow
+‼️ Important
 
 ---
 
 To successfully map a localized workspace:
 
-1. **Clean Connections:** Always check your port settings inside the chosen script:
+**Clean Connections:** Always check your port settings inside the chosen script:
+
 ```matlab
 lidarPort = '/dev/cu.usbserial-0001'; 
 baudRate = 230400;
 
 ```
-
----
-
-‼️ Important
-
----
 
 I am in MacOS and using USB Serial 0001 so it will be /dev/cu.usbserial-0001. You may refer to your own port.
 
