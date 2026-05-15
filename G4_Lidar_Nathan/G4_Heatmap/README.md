@@ -12,30 +12,27 @@ This repository contains a MATLAB script that interfaces with a serial 2D LiDAR 
 
 ## 📋 Prerequisites
 
-* **Software:** * MATLAB (R2019b or newer is recommended for native `serialport` support).
-* *Optional but Recommended:* **Image Processing Toolbox** (for the Gaussian smoothing effect).
-
-
-* **Hardware:** * A compatible 2D LiDAR sensor (using the `0xAA 0x55` packet header protocol).
+* **Software:** MATLAB (R2019b or newer is recommended for native `serialport` support).
+* **Hardware:** * A compatible 2D LiDAR sensor. (The script is tuned for sensors operating at a `230400` baud rate that utilize the `0xAA 0x55` / `[170 85]` packet header protocol).
 * A USB-to-Serial adapter.
 
 
 
 ## 🚀 Setup and Usage
 
-1. **Connect your LiDAR:** Plug the sensor into your computer via USB.
-2. **Identify your Serial Port:** * On macOS/Linux: `/dev/cu.usbserial-XXXX`
-* On Windows: `COM3`, `COM4`, etc.
-
-
-3. **Update the Script:** Open the script and modify the `lidarPort` variable:
+1. **Connect your LiDAR:** Plug the LiDAR sensor into your computer via USB.
+2. **Identify your Serial Port:**
+* On macOS/Linux, it usually looks like `/dev/cu.usbserial-XXXX`.
+* On Windows, it will be a COM port (e.g., `COM3`).
+3. **Update the Script:** Open the MATLAB script and modify the `lidarPort` variable to match your system's configuration:
 ```matlab
-lidarPort = '/dev/cu.usbserial-0001'; % Change this to match your system
-
+lidarPort = '/dev/cu.usbserial-0001'; % Change this to your specific port
 ```
-
-
-4. **Run:** Execute the script. The motor will initialize, and the heatmap will begin accumulating data. Close the figure window to safely stop the sensor.
+  OR
+```matlab
+lidarPort = 'COM3'; % Change this to your specific port
+```
+4. **Run:** Execute the script in MATLAB. The radar window will open, the motor will initialize, and data will begin plotting after a brief startup pause. To stop the program, simply close the figure window.
 
 ## ⚙️ Configuration Parameters
 
@@ -46,6 +43,20 @@ You can adjust the resolution and scale of the heatmap by modifying these variab
 | `mapSize` | `8` | The total physical size of the tracking area in meters (e.g., an 8x8 meter square). |
 | `resolution` | `50` | Pixels per meter. Higher values create a sharper grid but require more processing power. `50` means each pixel represents 2cm. |
 | `baudRate` | `230400` | Serial communication speed for the sensor. |
+
+## 🛠️ Troubleshooting
+
+* **`Connection failed. Unplug and replug the USB.`**
+
+Ensure the LiDAR is plugged in and the `lidarPort` string exactly matches your system's active port.
+Make sure no other software (like another terminal or LiDAR viewer) is currently holding the serial port open.
+
+
+* **No data is plotting but the motor is spinning:**
+
+Verify that your specific LiDAR model uses the packet structure expected by the parser (packet headers `[170 85]`). If using a different brand of LiDAR, the byte-parsing logic inside the `while` loop will need to be adapted to match your manufacturer's datasheet.
+
+
 
 ## 🎯 Expected Result
 
