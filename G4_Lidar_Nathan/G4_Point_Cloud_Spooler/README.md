@@ -12,10 +12,10 @@ This repository contains a specialized Data Acquisition (DAQ) MATLAB script desi
 
 ## 📋 Prerequisites
 
-* **Software:** MATLAB (R2019b or newer is recommended for native `serialport` support).
-* **Hardware:** * A compatible 2D LiDAR sensor. (The script is tuned for sensors operating at a `230400` baud rate that utilise the `0xAA 0x55` / `[170 85]` packet header protocol).
-* A USB-to-Serial adapter.
-
+* **Software:** MATLAB (R2019b or newer)
+  * **Computer Vision Toolbox** (Required for the `pointCloud` function)
+* **Hardware:** A 2D LiDAR sensor utilizing the `0xAA 0x55` serial header protocol.
+  * A USB-to-Serial adapter.
 
 
 ## 🚀 Setup and Usage
